@@ -10,7 +10,7 @@ public class Monitor {
 		this.disponivel = false;
 	}
 
-	public synchronized void produzir(String nomeThread, int valorItem) {
+	public synchronized void produzir(int valorItem) {
 
 		while (disponivel) {
 			try {
@@ -21,7 +21,7 @@ public class Monitor {
 			}
 		}
 		produto = valorItem;
-		System.out.println(nomeThread + "\t produziu: \t" + produto);
+		System.out.println(Thread.currentThread().getName() + "\t produziu: \t" + produto);
 		disponivel = true;
 		notifyAll();
 	}
@@ -36,6 +36,8 @@ public class Monitor {
 				return -1;
 			}
 		}
+
+		System.out.println(Thread.currentThread().getName() + "\t consumiu: \t" + produto);
 		disponivel = false;
 		notifyAll();
 		return produto;

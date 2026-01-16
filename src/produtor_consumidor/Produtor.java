@@ -13,7 +13,7 @@ public class Produtor implements Runnable {
 	@Override
 	public void run() {
 		for (int valorIten = 0; valorIten < totalItens; valorIten++) {
-			monitor.produzir(Thread.currentThread().getName(), valorIten);
+			monitor.produzir( valorIten);
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {

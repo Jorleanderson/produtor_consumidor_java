@@ -15,8 +15,7 @@ public class Consumidor implements Runnable {
 
 		for (int i = 0; i < totalItens; i++) {
 
-			int produto = monitor.consumir();
-			System.out.println(Thread.currentThread().getName() + "\t consumiu: \t" + produto);
+			monitor.consumir();
 
 			try {
 				Thread.sleep(1000);
